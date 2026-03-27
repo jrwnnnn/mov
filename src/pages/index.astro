@@ -4,40 +4,46 @@ import Layout from "../layouts/Layout.astro";
 import Entry from "../components/Card.astro";
 
 const turso = createClient({
-  url: process.env.TURSO_DATABASE_URL || import.meta.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN || import.meta.env.TURSO_AUTH_TOKEN,
+	url: process.env.TURSO_DATABASE_URL || import.meta.env.TURSO_DATABASE_URL,
+	authToken: process.env.TURSO_AUTH_TOKEN || import.meta.env.TURSO_AUTH_TOKEN,
 });
 
 const movs = await turso.execute("SELECT * FROM mov ORDER BY date DESC");
 ---
 
 <Layout title="MOV Portfolio">
-  <main
-    class="min-h-screen bg-linear-to-br from-[#f5f5ff] via-[#e3e9fc] to-[#f0f4ff] p-0 md:p-0"
-  >
-    <section
-      class="flex flex-col items-center justify-center bg-linear-to-r from-blue-500/10 via-white/80 to-amber-100/40 py-16 md:py-24"
-    >
-      <h1
-        class="mb-4 text-5xl font-extrabold tracking-tight text-gray-900 drop-shadow-sm md:text-6xl"
-      >
-        MOV SHOTS
-      </h1>
-      <p
-        class="mb-2 max-w-2xl text-center text-lg font-medium text-gray-600 md:text-2xl"
-      >
-        Compilation of all my MOV shots for the subject Readings in Philippine
-        History. Built by yours truely :3
-      </p>
-    </section>
-    <section class="columns-1 space-y-6 p-5 lg:columns-2">
-      {movs.rows.map((mov) => <Entry mov={mov} />)}
-    </section>
-    <footer class="py-5 text-center text-sm text-gray-500">
-      &copy; {new Date().getFullYear()}
-      <a href="https://jrwnnnn.me" target="_blank" class="underline"
-        >Mark Jerwin</a
-      >. All rights reserved.
-    </footer>
-  </main>
+	<main
+		class="min-h-screen bg-linear-to-br from-[#f5f5ff] via-[#e3e9fc] to-[#f0f4ff] p-0 md:p-0"
+	>
+		<section
+			class="flex flex-col items-center justify-center bg-linear-to-r from-blue-500/10 via-white/80 to-amber-100/40 py-16 md:py-24"
+		>
+			<h1
+				class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 drop-shadow-sm md:text-6xl"
+			>
+				MOV SHOTS
+			</h1>
+			<p
+				class="mb-2 max-w-2xl text-center font-medium text-gray-600 md:text-2xl px-10"
+			>
+				Compilation of all my MOV shots for the subject Readings in Philippine
+				History. Built by yours truely :3
+			</p>
+		</section>
+		<section class="columns-1 space-y-6 p-5 lg:columns-2">
+			{
+				movs.rows.map((mov) => (
+					<div class="break-inside-avoid">
+						<Entry mov={mov} />
+					</div>
+				))
+			}
+		</section>
+		<footer class="py-5 text-center text-sm text-gray-500">
+			&copy; {new Date().getFullYear()}
+			<a href="https://jrwnnnn.me" target="_blank" class="underline"
+				>Mark Jerwin</a
+			>. All rights reserved.
+		</footer>
+	</main>
 </Layout>
