@@ -7,7 +7,7 @@ const { mov } = Astro.props;
     class="flex cursor-pointer flex-col space-y-5 rounded-3xl border border-gray-100 bg-white/90 p-5 shadow-xl transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-2xl md:p-10"
   >
     <div class="space-y-4">
-      <h1 class="text-3xl font-bold text-gray-800">
+      <h1 class="text-lg md:text-3xl font-bold text-gray-800">
         {
           new Date(mov.date as string).toLocaleDateString("en-US", {
             timeZone: "UTC",
