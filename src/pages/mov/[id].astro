@@ -1,11 +1,9 @@
 ---
-import { createClient } from "@libsql/client";
+import { getTurso } from "../../utils/db";
 import Layout from "../../layouts/Layout.astro";
 
-const turso = createClient({
-	url: process.env.TURSO_DATABASE_URL || import.meta.env.TURSO_DATABASE_URL,
-	authToken: process.env.TURSO_AUTH_TOKEN || import.meta.env.TURSO_AUTH_TOKEN,
-});
+const runtimeEnv = Astro.locals.runtime?.env ?? {};
+const turso = getTurso(runtimeEnv);
 
 const id = Astro.params.id as string;
 const result = await turso.execute("SELECT * FROM mov WHERE id = ?", [id]);
