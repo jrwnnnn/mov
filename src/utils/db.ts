@@ -17,5 +17,16 @@ export function getTurso(env: TursoEnv) {
 	return createClient({
 		url: env.TURSO_DATABASE_URL,
 		authToken: env.TURSO_AUTH_TOKEN,
+		fetch: (
+			input: Parameters<typeof fetch>[0],
+			init?: Parameters<typeof fetch>[1],
+		) => {
+			const normalizedInit = {
+				...init,
+				headers: init?.headers ?? {},
+			};
+
+			return fetch(input, normalizedInit);
+		},
 	});
 }
