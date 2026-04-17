@@ -9,7 +9,7 @@ const { mov } = Astro.props;
     <div class="space-y-4">
       <h1 class="text-lg md:text-3xl font-bold text-gray-800">
         {
-          new Date(mov.date as string).toLocaleDateString("en-US", {
+          new Date(mov.date).toLocaleDateString("en-US", {
             timeZone: "UTC",
             month: "long",
             day: "numeric",
@@ -35,7 +35,7 @@ const { mov } = Astro.props;
         </span>
       </div>
 
-      <img src={mov.photo_1 as string} class="rounded-lg" />
+      <img src=`https://r2.mov.jrwnnnn.me/${mov.photo_1}` class="rounded-lg" />
     </div>
   </div>
 </a>
