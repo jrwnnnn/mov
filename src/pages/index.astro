@@ -3,10 +3,7 @@ import { env } from "cloudflare:workers";
 import Entry from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 
-const movs = await env.DB.prepare("SELECT * FROM mov ORDER BY date DESC").all();
-if (!movs.results) {
-	console.error("Failed to fetch MOV shots from the database.");
-}
+const movs = await env.DB.prepare("SELECT * FROM movs ORDER BY date DESC").all();
 ---
 
 <Layout title="MOV Portfolio">
