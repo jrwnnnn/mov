@@ -1,14 +1,12 @@
 ---
-import { createClient } from "@tursodatabase/serverless/compat";
-import Layout from "../layouts/Layout.astro";
+import { env } from "cloudflare:workers";
 import Entry from "../components/Card.astro";
+import Layout from "../layouts/Layout.astro";
 
-const turso = createClient({
-	url: import.meta.env.TURSO_DATABASE_URL,
-	authToken: import.meta.env.TURSO_AUTH_TOKEN,
-});
-
-const movs = await turso.execute("SELECT * FROM mov ORDER BY date DESC");
+const movs = await env.DB.prepare("SELECT * FROM mov ORDER BY date DESC").all();
+if (!movs.results) {
+	console.error("Failed to fetch MOV shots from the database.");
+}
 ---
 
 <Layout title="MOV Portfolio">
@@ -32,7 +30,7 @@ const movs = await turso.execute("SELECT * FROM mov ORDER BY date DESC");
 		</section>
 		<section class="columns-1 space-y-6 p-5 lg:columns-2">
 			{
-				movs.rows.map((mov) => (
+				movs.results.map((mov) => (
 					<div class="break-inside-avoid">
 						<Entry mov={mov} />
 					</div>
