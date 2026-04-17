@@ -6,7 +6,7 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
 	output: "server",
 	adapter: cloudflare({
-		remoteBindings: !import.meta.env.CI,
+		remoteBindings: !process.env.CI,
 	}),
 	vite: {
 		plugins: [tailwindcss()],
