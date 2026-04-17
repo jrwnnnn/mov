@@ -7,6 +7,14 @@
 		"directory": "./dist",
 		"binding": "ASSETS"
 	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "mov-db",
+			"database_id": "5f94fae9-4b01-4673-ac80-1f53dd272d79",
+			"remote": true
+		}
+	],
 	"observability": {
 		"enabled": true
 	}
