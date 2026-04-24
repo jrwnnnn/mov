@@ -2,7 +2,7 @@
 const { mov } = Astro.props;
 ---
 
-<a href={`/mov/${mov.id}`} class="block">
+<a href={`/mov/${mov.id}`} class="block" data-astro-prefetch>
   <div
     class="flex cursor-pointer flex-col space-y-5 rounded-3xl border border-gray-100 bg-white/90 p-5 shadow-xl transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-2xl md:p-10"
   >
