@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 const {
   title,
@@ -29,6 +30,8 @@ const {
 
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/png" href="favicon.png" />
+
+    <ClientRouter />
   </head>
   <body>
     <slot />
