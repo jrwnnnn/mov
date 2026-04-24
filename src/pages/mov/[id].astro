@@ -1,4 +1,6 @@
 ---
+Astro.response.headers.set("Cache-Control", "public, max-age=60");
+
 import { env } from "cloudflare:workers";
 import Layout from "../../layouts/Layout.astro";
 
@@ -19,11 +21,15 @@ const result = await env.DB.prepare("SELECT * FROM movs WHERE id = ?")
 					<a
 						href="/"
 						class="text-md font-medium text-black/40 hover:text-black/60"
+						data-astro-prefeth
 					>
 						&larr; Back to HomePage
 					</a>
 
-					<h1 class="text-3xl font-extrabold tracking-tight text-gray-900 drop-shadow-sm md:text-5xl">
+					<h1
+						class="text-3xl font-extrabold tracking-tight text-gray-900 drop-shadow-sm md:text-5xl"
+						transition:name={`date-component-${mov.id}`}
+					>
 						{new Date(mov.date as string).toLocaleDateString("en-US", {
 							timeZone: "UTC",
 							month: "long",

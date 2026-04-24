@@ -2,40 +2,43 @@
 const { mov } = Astro.props;
 ---
 
-<a href={`/mov/${mov.id}`} class="block">
-  <div
-    class="flex cursor-pointer flex-col space-y-5 rounded-3xl border border-gray-100 bg-white/90 p-5 shadow-xl transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-2xl md:p-10"
-  >
-    <div class="space-y-4">
-      <h1 class="text-lg md:text-3xl font-bold text-gray-800">
-        {
-          new Date(mov.date).toLocaleDateString("en-US", {
-            timeZone: "UTC",
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          })
-        }
-      </h1>
-      <p
-        class="text-sm leading-relaxed text-balance text-gray-700 md:text-base line-clamp-2"
-      >
-        {mov.narrative}
-      </p>
-      <div class="flex gap-1">
-        <span
-          class="rounded-full bg-blue-600/90 px-4 py-1 text-xs font-medium text-white shadow-md md:text-sm"
-        >
-          Recitation: {mov.recitationScore ?? "N/A"}
-        </span>
-        <span
-          class="rounded-full bg-amber-500/90 px-4 py-1 text-xs font-medium text-white shadow-md md:text-sm"
-        >
-          Written Work: {mov.writtenWorksScore ?? "N/A"}
-        </span>
-      </div>
+<a href={`/mov/${mov.id}`} class="block" data-astro-prefetch>
+	<div
+		class="flex cursor-pointer flex-col space-y-5 rounded-3xl border border-gray-100 bg-white/90 p-5 shadow-xl transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-2xl md:p-10"
+	>
+		<div class="space-y-4">
+			<h1
+				class="text-lg font-bold text-gray-800 md:text-3xl"
+				transition:name={`date-component-${mov.id}`}
+			>
+				{
+					new Date(mov.date).toLocaleDateString("en-US", {
+						timeZone: "UTC",
+						month: "long",
+						day: "numeric",
+						year: "numeric",
+					})
+				}
+			</h1>
+			<p
+				class="line-clamp-2 text-sm leading-relaxed text-balance text-gray-700 md:text-base"
+			>
+				{mov.narrative}
+			</p>
+			<div class="flex gap-1">
+				<span
+					class="rounded-full bg-blue-600/90 px-4 py-1 text-xs font-medium text-white shadow-md md:text-sm"
+				>
+					Recitation: {mov.recitationScore ?? "N/A"}
+				</span>
+				<span
+					class="rounded-full bg-amber-500/90 px-4 py-1 text-xs font-medium text-white shadow-md md:text-sm"
+				>
+					Written Work: {mov.writtenWorksScore ?? "N/A"}
+				</span>
+			</div>
 
-      <img src=`https://r2.mov.jrwnnnn.me/${mov.photo_1}` class="rounded-lg" />
-    </div>
-  </div>
+			<img src=`https://r2.mov.jrwnnnn.me/${mov.photo_1}` class="rounded-lg" />
+		</div>
+	</div>
 </a>
