@@ -4,12 +4,14 @@
 				History.</i></p>
 
 <div align="center">
-   <!-- FIND PREMADE BADGES HERE: https://github.com/Ileriayo/markdown-badges -->
-   <a href="https://astro.build"><img src="https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white"></a>
-   <a href="https://sqlite.org/"><img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"></a>
-   <a href="./LICENSE"><img src="https://img.shields.io/github/license/jrwnnnn/mov?style=for-the-badge"></a>
-   <a href="https://github.com/jrwnnnn/mov/stargazers"><img src="https://img.shields.io/github/stars/jrwnnnn/mov?style=for-the-badge"></a>
-   <a href="https://github.com/jrwnnnn/mov/actions"><img src="https://img.shields.io/github/actions/workflow/status/jrwnnnn/mov/main.yml?style=for-the-badge"></a>
+  <!-- FIND PREMADE BADGES HERE: https://github.com/Ileriayo/markdown-badges -->
+  <a href="https://astro.build"><img src="https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white"></a>
+  <a href="https://sqlite.org/"><img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"></a>
+  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/jrwnnnn/mov?style=for-the-badge"></a>
+  <a href="https://github.com/jrwnnnn/mov/stargazers"><img src="https://img.shields.io/github/stars/jrwnnnn/mov?style=for-the-badge"></a>
+  <a href="https://github.com/jrwnnnn/mov/actions"><img src="https://img.shields.io/github/actions/workflow/status/jrwnnnn/mov/main.yml?style=for-the-badge"></a>
+
 </div>
 
 <br>
@@ -37,7 +39,7 @@ cd mov
 npm install
 
 #Run the program
-npm run atsro:dev
+npm run dev
 ```
 
 ## License
